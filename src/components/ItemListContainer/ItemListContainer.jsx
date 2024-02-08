@@ -16,8 +16,8 @@ const ItemListContainer = ({greeting}) => {
     getProducts().then((res) => {
       setProducts(res);
     }).finally(() => {
-      setLoading(false);
-    },1000);
+      setLoading(false)
+      ,1000});
     
   }, [category] )
   return (
