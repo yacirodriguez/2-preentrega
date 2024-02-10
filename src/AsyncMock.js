@@ -1,32 +1,4 @@
-const products= [
-{
-    id: 1,
-    nameProduct: "Zapatillas Nike",
-    price: 5000,
-    img:'./src/assets/img/zapatillas-nike.png',
-    description: "Descripcion de Zapatillas Nike",
-    category: "zapatillas",
-    stock:20 
-},
-{
-    id: 2,
-    nameProduct: "Zapatillas Adidas",
-    price: 5200,
-    img:'./src/assets/img/championes-adidas-multix-gris.jpg',
-    description: "Descripcion de Zapatillas Adidas",
-    category: "zapatillas",
-    stock: 10
-},
-{
-    id: 3,
-    nameProduct: "Camiseta Liverpool",
-    price: 4800,
-    img:'./src/assets/img/camiseta-liverpool.jpg',
-    description: "Descripcion de Camiseta Liverpool",
-    category: "camisetas",
-    stock: 8
-}
-]
+
 
 export const getProducts = ()=>{
     return new Promise((res, rej)=>{
