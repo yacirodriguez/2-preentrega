@@ -5,6 +5,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import {BrowserRouter ,Routes, Route, } from  'react-router-dom'
 import { CartContextProvider } from './context/CartContext'
 import Cart from './pages/Cart'
+import Admin from './pages/Admin'
 
 function App() {
   const [cart, setCart] = useState ([])
@@ -20,6 +21,9 @@ function App() {
       <Route path="category/:category" element={<ItemListContainer greeting='Hola'/>}/>
       <Route path="producto/:id" element={<ItemDetailContainer/>}/>
       <Route path='/cart' element={<Cart/>}/>
+      <Route path='/admin' element={<Admin/>}/>
+      <Route path='/checkout' element={<Checkout/>}/>
+
     </Routes>
     </BrowserRouter>
     </CartContextProvider>
