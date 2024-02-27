@@ -26,14 +26,14 @@ export const CartContextProvider = ({ children }) => {
   };
 
   const removeItem = (id, quantity) => {
-    // Encuentra el ítem con el id dado
+    
     const itemToRemove = cart.find((item) => item.id === id);
     if (itemToRemove) {
       if (itemToRemove.cantidad === quantity) {
-        // Si la cantidad a eliminar es igual a la cantidad en el carrito, eliminar completamente el ítem
+        
         setCart(cart.filter((item) => item.id !== id));
       } else {
-        // Si la cantidad a eliminar es menor que la cantidad en el carrito, actualizar la cantidad
+      
         const updatedCart = cart.map((item) => {
           if (item.id === id) {
             return { ...item, cantidad: item.cantidad - quantity };

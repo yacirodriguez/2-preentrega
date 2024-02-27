@@ -1,25 +1,26 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { cart, total, emptyCart, removeItem } = useContext(CartContext);
-  const [quantityToRemove, setQuantityToRemove] = useState(1); // Estado para almacenar la cantidad a eliminar
+  const [quantityToRemove, setQuantityToRemove] = useState(1);
 
   const handleRemoveItem = (id) => {
-    removeItem(id, quantityToRemove); // Llama a removeItem con la cantidad a eliminar
-    setQuantityToRemove(1); // Restaura la cantidad a eliminar a 1 después de eliminar
+    removeItem(id, quantityToRemove);
+    setQuantityToRemove(1);
   };
 
   return (
-    <div className="mt-4">
+    <div className="container mx-auto mt-8">
       {cart.length === 0 ? (
-        <h3 className="text-xl font-semibold">Tu carrito está vacío</h3>
+        <h3 className="text-xl font-semibold text-center">Tu carrito está vacío</h3>
       ) : (
         <>
           {cart.map((item) => (
-            <div key={item.id} className="flex items-center justify-between pl-6 border-b-2 border-gray-300 mb-4">
+            <div key={item.nameProduct} className="flex items-center justify-between border-b-2 border-gray-300 mb-4">
               <div className="flex items-center space-x-4">
-                <img className="h-20" src={item.img} alt={item.nameProduct} />
+                <img className="h-24 w-24 object-cover" src={item.img} alt={item.nameProduct} />
                 <div>
                   <h3 className="text-lg font-semibold">{item.nameProduct}</h3>
                   <p className="text-gray-600">Precio: ${item.price}</p>
@@ -36,14 +37,18 @@ const Cart = () => {
                   onChange={(e) => setQuantityToRemove(parseInt(e.target.value))}
                   className="w-16 px-2 py-1 border rounded-md text-center"
                 />
-                <button className="btn btn-danger" onClick={() => handleRemoveItem(item.id)}>❌</button>
+                <button className="bg-gray-100 text-white px-4 py-2 rounded-md hover:bg-violet-600" onClick={() => handleRemoveItem(item.id)}>❌</button>
               </div>
             </div>
           ))}
-          
+
+          <div className="flex justify-between mt-4">
             <h3 className="text-lg font-semibold">Precio total: $ {total()}</h3>
-            <button className="btn btn-danger" onClick={() => emptyCart()}>Vaciar Carrito</button>
-          
+            <div>
+              <button className="bg-red-500 text-white px-4 py-2 rounded-md mr-2 hover:bg-red-600" onClick={() => emptyCart()}>Vaciar Carrito</button>
+              <Link to="/checkout" className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Confirmar compra</Link>
+            </div>
+          </div>
         </>
       )}
     </div>

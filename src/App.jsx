@@ -6,6 +6,7 @@ import {BrowserRouter ,Routes, Route, } from  'react-router-dom'
 import { CartContextProvider } from './context/CartContext'
 import Cart from './pages/Cart'
 import Admin from './pages/Admin'
+import Checkout from './pages/Checkout'
 
 function App() {
   const [cart, setCart] = useState ([])

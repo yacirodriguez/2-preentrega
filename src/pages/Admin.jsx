@@ -2,6 +2,7 @@ import React from 'react'
 import {products} from '../AsyncMock'
 import {db} from '../services/firebaseConfig'
 import { collection,addDoc } from 'firebase/firestore'
+import Button from '../components/Button/Button'
 
 const productsRef =collection(db,'products')
 
@@ -15,7 +16,7 @@ const handledUpload = ()=>{
 
 const Admin = () => {
   return (
-    <div onClick={()=>handledUpload()}>subir productos</div>
+    <button onClick={()=>handledUpload()}>subir productos</button>
   )
 }
 
